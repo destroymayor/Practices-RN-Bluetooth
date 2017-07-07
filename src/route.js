@@ -8,6 +8,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import home from "./screen/home";
+import testresult from "./screen/testresult";
 
 import {
   StackNavigator,
@@ -17,7 +18,8 @@ import {
 
 const Route = StackNavigator(
   {
-    home: { screen: home }
+    home: { screen: home },
+    testresult: { screen: testresult }
   },
   {
     initialRouteName: "home",
@@ -40,7 +42,6 @@ Route.router.getStateForAction = navigateOnce(Route.router.getStateForAction);
 
 export default class App extends Component {
   render() {
-    //close navigation console
     return <Route onNavigationStateChange={null} />;
   }
 }

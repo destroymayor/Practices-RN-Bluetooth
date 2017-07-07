@@ -12,7 +12,8 @@ import {
   Text
 } from "react-native";
 
-import BluetoohConfig from "./component/BluetoothConfig";
+import BluetoohConfig from "../component/BluetoothConfig";
+import Touchable from "../component/Touchable";
 
 import { AudioRecorder, AudioUtils } from "react-native-audio";
 import Icon from "react-native-vector-icons/Entypo";
@@ -138,10 +139,6 @@ export default class home extends Component {
       const filePath = await AudioRecorder.stopRecording();
       if (Platform.OS === "android") {
         this.setState({ finished: didSucceed });
-        console.log(
-          `Finished recording of duration ${this.state
-            .currentTime} seconds at path: ${filePath}`
-        );
       }
       return filePath;
     } catch (error) {
@@ -179,18 +176,7 @@ export default class home extends Component {
               {this.state.currentTime}
             </Text>
           </View>
-          <TouchableOpacity
-            onPress={this._StartRecord.bind(this)}
-            style={{
-              width: 100,
-              height: 40,
-              backgroundColor: "#2894ff",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <Text>start</Text>
-          </TouchableOpacity>
+          <Touchable onPress={this._StartRecord.bind(this)} text="開始檢測" />
         </View>
       </View>
     );

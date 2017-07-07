@@ -16,7 +16,7 @@ import BleManager from "react-native-ble-manager";
 const BleManagerModule = NativeModules.BleManager;
 const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 
-export default class Bluetoothconfig extends Component {
+export default class BluetoothConfig extends Component {
   constructor(props) {
     super(props);
     this.state = {
